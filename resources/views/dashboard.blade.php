@@ -140,98 +140,28 @@
                 <a href="" class="view-all-link">View All</a>
             </div>
             <div class="row">
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <img src="asset/images/dashboard/cruel_prince.png" class="card-img-top" alt="Book Cover">
-                        <div class="card-body">
-                            <h5 class="book-title">The Cruel Prince</h5>
-                            <h6 class="book-author">Holly Black</h6>
-                            <div class="star-rating">
-                                @php
-                                    $stars = 4;
-                                  @endphp
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <i class="bi bi-star{{ $i <= $stars ? '-fill' : '' }}"></i>
-                                @endfor
-                            </div>
-                            <div class="last-reader mt-3">
-                                <img src="{{ asset('asset/images/renjun.png') }}" class="rounded-circle" width="24"
-                                    height="24" alt="Reader's Profile Picture">
-                                <span class="reader">Renato Jr.</span>
-                                <span class="time">5 days ago</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <img src="asset/images/dashboard/storm_and_silence.png" class="card-img-top" alt="Book Cover">
-                        <div class="card-body">
-                            <h5 class="book-title">Storm and Silence</h5>
-                            <h6 class="book-author">Robert Thier</h6>
-                            <div class="star-rating">
-                                @php
-                                    $stars = 4;
-                                  @endphp
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <i class="bi bi-star{{ $i <= $stars ? '-fill' : '' }}"></i>
-                                @endfor
-                            </div>
-                            <div class="last-reader mt-3">
-                                <img src="{{ asset('asset/images/renjun.png') }}" class="rounded-circle" width="24"
-                                    height="24" alt="Reader's Profile Picture">
-                                <span class="reader">Renato Jr.</span>
-                                <span class="time">5 days ago</span>
+                @foreach ($posts as $post)
+                    <div class="col-md-3 mb-4">
+                        <div class="card">
+                            <img src="{{ $post['cover'] }}" class="card-img-top" alt="Book Cover">
+                            <div class="card-body">
+                                <h5 class="book-title">{{ $post['title'] }}</h5>
+                                <h6 class="book-author">{{ $post['author'] }}</h6>
+                                <div class="star-rating">
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <i class="bi bi-star{{ $i <= $post['rating'] ? '-fill' : '' }}"></i>
+                                    @endfor
+                                </div>
+                                @foreach ($post['comments'] as $comment)
+                                    <div class="last-reader mt-3">
+                                        <span class="reader">{{ $comment['author'] }}</span>
+                                        <span class="time">{{ $comment['time'] }}</span>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <img src="asset/images/dashboard/waves_of_memories.png" class="card-img-top" alt="Book Cover">
-                        <div class="card-body">
-                            <h5 class="book-title">Waves of Memories</h5>
-                            <h6 class="book-author">Jonaxx Stories</h6>
-                            <div class="star-rating">
-                                @php
-                                    $stars = 4;
-                                  @endphp
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <i class="bi bi-star{{ $i <= $stars ? '-fill' : '' }}"></i>
-                                @endfor
-                            </div>
-                            <div class="last-reader mt-3">
-                                <img src="{{ asset('asset/images/renjun.png') }}" class="rounded-circle" width="24"
-                                    height="24" alt="Reader's Profile Picture">
-                                <span class="reader">Renato Jr.</span>
-                                <span class="time">5 days ago</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <img src="{{ asset('asset/images/dashboard/invisible_girl.png') }}" class="card-img-top" alt="Book Cover">
-                        <div class="card-body">
-                            <h5 class="book-title">The Invisible Girl</h5>
-                            <h6 class="book-author">Alexisse Rose</h6>
-                            <div class="star-rating">
-                                @php
-                                    $stars = 4;
-                                  @endphp
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <i class="bi bi-star{{ $i <= $stars ? '-fill' : '' }}"></i>
-                                @endfor
-                            </div>
-                            <div class="last-reader mt-3">
-                                <img src="{{ asset('asset/images/renjun.png') }}" class="rounded-circle" width="24"
-                                    height="24" alt="Reader's Profile Picture">
-                                <span class="reader">Renato Jr.</span>
-                                <span class="time">5 days ago</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
