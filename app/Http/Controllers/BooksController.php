@@ -20,7 +20,7 @@ class BooksController extends Controller
                 'time' => '5 days ago',
                 'genre' => 'Fantasy',
                 'comments' => [
-                    ['author' => 'Renato Jr.', 'text' => 'Masterpiece!', 'time' => '1 day ago']
+                    ['author' => 'Renato Jr.', 'text' => 'An incredible read! So many twists and unforgettable moments!', 'time' => '1 day ago']
                 ]
             ],
             [
@@ -33,7 +33,7 @@ class BooksController extends Controller
                 'time' => '12 days ago',
                 'genre' => 'Mystery',
                 'comments' => [
-                    ['author' => 'Renato Jr.', 'text' => 'Fave <3', 'time' => '2 days ago']
+                    ['author' => 'Renato Jr.', 'text' => 'A thrilling mystery that keeps you on the edge of your seat. Highly recommend!', 'time' => '2 days ago']
                 ]
             ],
             [
@@ -46,7 +46,7 @@ class BooksController extends Controller
                 'time' => '12 days ago',
                 'genre' => 'Self-help',
                 'comments' => [
-                    ['author' => 'Renato Jr.', 'text' => 'Great book!', 'time' => '2 days ago']
+                    ['author' => 'Renato Jr.', 'text' => 'It\'s a beautiful book with gentle life lessons. Very thought-provoking.', 'time' => '2 days ago']
                 ]
             ],
             [
@@ -59,7 +59,7 @@ class BooksController extends Controller
                 'time' => '12 days ago',
                 'genre' => 'Romance',
                 'comments' => [
-                    ['author' => 'Renato Jr.', 'text' => 'Great book!', 'time' => '3 days ago']
+                    ['author' => 'Renato Jr.', 'text' => 'A classic with timeless romance and witty characters. A must-read!', 'time' => '3 days ago']
                 ]
             ],
             [
@@ -72,7 +72,7 @@ class BooksController extends Controller
                 'time' => '5 days ago',
                 'genre' => 'Thriller',
                 'comments' => [
-                    ['author' => 'Renato Jr.', 'text' => 'Great book!', 'time' => '5 days ago']
+                    ['author' => 'Renato Jr.', 'text' => 'A fast-paced, exciting thriller. Great book!', 'time' => '5 days ago']
                 ]
             ],
             [
@@ -85,7 +85,7 @@ class BooksController extends Controller
                 'time' => '12 days ago',
                 'genre' => 'Comedy',
                 'comments' => [
-                    ['author' => 'Renato Jr.', 'text' => 'Great book!', 'time' => '5 days ago']
+                    ['author' => 'Renato Jr.', 'text' => 'Great book! It\'s light and fun.', 'time' => '5 days ago']
                 ]
             ],
             [
@@ -98,7 +98,7 @@ class BooksController extends Controller
                 'time' => '12 days ago',
                 'genre' => 'Drama',
                 'comments' => [
-                    ['author' => 'Renato Jr.', 'text' => 'Great book!', 'time' => '7 days ago']
+                    ['author' => 'Renato Jr.', 'text' => 'A heartfelt drama. The story really stays with you after finishing it', 'time' => '7 days ago']
                 ]
             ],
             [
@@ -111,7 +111,7 @@ class BooksController extends Controller
                 'time' => '12 days ago',
                 'genre' => 'Mystery',
                 'comments' => [
-                    ['author' => 'Renato Jr.', 'text' => 'Great book!', 'time' => '7 days ago']
+                    ['author' => 'Renato Jr.', 'text' => 'I loved this mystery! It\'s suspenseful and keeps you guessing.', 'time' => '7 days ago']
                 ]
             ],
             [
@@ -124,7 +124,7 @@ class BooksController extends Controller
                 'time' => '12 days ago',
                 'genre' => 'Fantasy',
                 'comments' => [
-                    ['author' => 'Renato Jr.', 'text' => 'Great book', 'time' => '2 weeks ago']
+                    ['author' => 'Renato Jr.', 'text' => 'A captivating fantasy! The world-building is amazing.', 'time' => '2 weeks ago']
                 ]
             ],
             [
@@ -137,7 +137,7 @@ class BooksController extends Controller
                 'time' => '12 days ago',
                 'genre' => 'Historical Fiction',
                 'comments' => [
-                    ['author' => 'Renato Jr.', 'text' => '<3<3', 'time' => '1 month ago']
+                    ['author' => 'Renato Jr.', 'text' => 'A charming historical fiction with a strong heroine. Loved every moment.', 'time' => '1 month ago']
                 ]
             ],
             [
@@ -150,7 +150,7 @@ class BooksController extends Controller
                 'time' => '12 days ago',
                 'genre' => 'Romance',
                 'comments' => [
-                    ['author' => 'Renato Jr.', 'text' => 'The best!!!!', 'time' => '1 month ago']
+                    ['author' => 'Renato Jr.', 'text' => 'A beautiful romance! It\'ll pull at your heartstrings.', 'time' => '1 month ago']
                 ]
             ],
             [
@@ -163,7 +163,7 @@ class BooksController extends Controller
                 'time' => '12 days ago',
                 'genre' => 'Romance',
                 'comments' => [
-                    ['author' => 'Renato Jr.', 'text' => 'Nice nice!', 'time' => '2 months ago']
+                    ['author' => 'Renato Jr.', 'text' => 'A sweet romance with an intriguing plot. Loved it!', 'time' => '2 months ago']
                 ]
             ],
         ];

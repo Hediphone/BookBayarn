@@ -104,7 +104,7 @@
                                 <h5 class="book_title">{{ $post['title'] }}</h5>
                                 @foreach ($post['comments'] as $comment)
                                     <span class="text">"{{ $comment['text'] }}"</span>
-                                    <span class="time">"{{ $comment['time'] }}"</span>
+                                    <span class="time">{{ $comment['time'] }}</span>
                                 @endforeach
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                                 <h5 class="book_title">{{ $post['title'] }}</h5>
                                 @foreach ($post['comments'] as $comment)
                                     <span class="text">"{{ $comment['text'] }}"</span>
-                                    <span class="time">"{{ $comment['time'] }}"</span>
+                                    <span class="time">{{ $comment['time'] }}</span>
                                 @endforeach
                             </div>
                         </div>
