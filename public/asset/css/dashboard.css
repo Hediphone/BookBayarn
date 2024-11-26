@@ -2,7 +2,7 @@
     font-family: "Merriweather", Helvetica;
 }
 
-main{
+main {
     padding: 30px 0px;
 }
 
@@ -149,17 +149,19 @@ main{
 } */
 
 .reviews {
-    height: 120px;
+    /* height: 120px; */
     text-align: center;
     background-color: white;
     border-width: 1px;
     border-style: solid;
     border-color: #B4D51E;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     overflow-x: hidden;
+    height: 100%;
+    /* Ensure cards stretch to fill the container */
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .reviews .name {
@@ -167,13 +169,21 @@ main{
 }
 
 .reviews .text {
-    font-size: 15px;
+    /* font-size: 15px; */
+    font-style: italic;
+
+    color: #000;
+    font-size: small;
+
 }
 
 .reviewed_books {
     text-align: left;
 }
 
+.review-item.hidden {
+    display: none;
+}
 .reviewed_books h1 {
     text-align: left;
     color: #463C74;
@@ -203,7 +213,7 @@ main{
 
 .book_title {
     font-size: 15px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .author {
@@ -236,9 +246,20 @@ h3 {
 }
 
 .view-all-link {
+    background: none;
+    border: none;
     color: #828282;
+    outline: none;
 }
 
+.view-all-link:hover {
+    color: #0056b3;  
+    text-decoration: underline; 
+}
+
+.view-all-link:focus {
+    outline: none; 
+}
 
 .card-img-top {
     padding: 13px 18px 0 18px;
@@ -273,6 +294,9 @@ h3 {
     font-size: x-small !important;
 }
 
+.reviews .time {
+    display: block;
+}
 
 .card {
     height: 100%;
@@ -290,20 +314,4 @@ h3 {
 .star-rating i.bi-star {
     color: #C4C4C4;
     /* Grey color for empty stars */
-}
-
-.last-reader {
-    display: flex;
-    align-items: center;
-}
-
-.last-reader img {
-    margin-right: 5px;
-}
-
-.recent_reviews.card {
-    height: 100%;
-    /* Ensure cards stretch to fill the container */
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

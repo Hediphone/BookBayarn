@@ -18,7 +18,7 @@
                             <img src="asset/images/renjun.png">
                         </div>
                         <div class="username">
-                            <p class="username">Hello, {{ Auth::user()->name }}</p>
+                            <p class="username">{{ Auth::user()->name }}</p>
                         </div>
                     </div>
                 </div>
@@ -92,56 +92,59 @@
     </section>
     <section class="recent_reviews">
         <div class="container">
-            <div class="row">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="text-left">Recent Reviews</h3>
-                </div>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="text-left">Recent Reviews</h3>
+                <button id="view-all-reviews" class="view-all-link">View All</button>
             </div>
-            <div class="row">
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <div class="reviews">
-                            <p class="book_title">The Shank </p>
-                            <p class="text">Love this book!</p>
+            <div class="row" id="review-list">
+                @foreach (array_slice($posts, 0, 4) as $post)
+                    <div class="col-md-3 mb-4 review-item">
+                        <div class="card">
+                            <div class="reviews">
+                                <h5 class="book_title">{{ $post['title'] }}</h5>
+                                @foreach ($post['comments'] as $comment)
+                                    <span class="text">"{{ $comment['text'] }}"</span>
+                                    <span class="time">"{{ $comment['time'] }}"</span>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <div class="reviews">
-                            <p class="book_title">Lucid Dream</p>
-                            <p class="text">A masterpiece!</p>
+                @endforeach
+
+                <!-- Hidden books that will be shown when the "View All" button is clicked -->
+                @foreach (array_slice($posts, 4) as $post)
+                    <div class="col-md-3 mb-4 review-item" style="display: none;">
+                        <div class="card">
+                            <div class="reviews">
+                                <h5 class="book_title">{{ $post['title'] }}</h5>
+                                @foreach ($post['comments'] as $comment)
+                                    <span class="text">"{{ $comment['text'] }}"</span>
+                                    <span class="time">"{{ $comment['time'] }}"</span>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <div class="reviews">
-                            <p class="book_title">Death Delayed</p>
-                            <p class="text">Plot twist is 0.0</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <div class="reviews">
-                            <p class="book_title">The Wallflower's Revenge</p>
-                            <p class="text">10/10</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+
+
     <section class="reviewed_books">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="text-left">Reviewed Books</h3>
-                <a href="" class="view-all-link">View All</a>
+                <button id="view-all-books" class="view-all-link">View All</button>
             </div>
-            <div class="row">
-                @foreach ($posts as $post)
-                    <div class="col-md-3 mb-4">
+            <div class="row" id="book-list">
+                @php
+                    usort($posts, function ($a, $b) {
+                        return $b['rating'] <=> $a['rating'];
+                    });
+                @endphp
+
+                @foreach (array_slice($posts, 0, 4) as $post)
+                    <div class="col-md-3 mb-4 book-item">
                         <div class="card">
                             <img src="{{ $post['cover'] }}" class="card-img-top" alt="Book Cover">
                             <div class="card-body">
@@ -154,6 +157,34 @@
                                 </div>
                                 @foreach ($post['comments'] as $comment)
                                     <div class="last-reader mt-3">
+                                        <img src="{{ asset('asset/images/renjun.png') }}" class="rounded-circle" width="24"
+                                            height="24" alt="Reader's Profile Picture">
+                                        <span class="reader">{{ $comment['author'] }}</span>
+                                        <span class="time">{{ $comment['time'] }}</span>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                <!-- Hidden books that will be shown when the "View All" button is clicked -->
+                @foreach (array_slice($posts, 4) as $post)
+                    <div class="col-md-3 mb-4 book-item" style="display:none;">
+                        <div class="card">
+                            <img src="{{ $post['cover'] }}" class="card-img-top" alt="Book Cover">
+                            <div class="card-body">
+                                <h5 class="book-title">{{ $post['title'] }}</h5>
+                                <h6 class="book-author">{{ $post['author'] }}</h6>
+                                <div class="star-rating">
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <i class="bi bi-star{{ $i <= $post['rating'] ? '-fill' : '' }}"></i>
+                                    @endfor
+                                </div>
+                                @foreach ($post['comments'] as $comment)
+                                    <div class="last-reader mt-3">
+                                        <img src="{{ asset('asset/images/renjun.png') }}" class="rounded-circle" width="24"
+                                            height="24" alt="Reader's Profile Picture">
                                         <span class="reader">{{ $comment['author'] }}</span>
                                         <span class="time">{{ $comment['time'] }}</span>
                                     </div>
@@ -165,5 +196,55 @@
             </div>
         </div>
     </section>
+
 </main>
+@endsection
+
+@section('scripts')
+<script>
+    document.getElementById('view-all-books').addEventListener('click', function () {
+        const hiddenBooks = document.querySelectorAll('.book-item[style="display:none;"]');
+
+        if (hiddenBooks.length > 0) {
+            hiddenBooks.forEach(book => {
+                book.style.display = 'block';
+            });
+
+            this.textContent = 'Show Less';
+        } else {
+            const allBooks = document.querySelectorAll('.book-item');
+
+            allBooks.forEach((book, index) => {
+                if (index >= 4) {
+                    book.style.display = 'none';
+                }
+            });
+
+            this.textContent = 'View All';
+        }
+    });
+
+
+    document.getElementById('view-all-reviews').addEventListener('click', function () {
+        const hiddenReviews = document.querySelectorAll('.review-item[style="display: none;"]');
+
+        if (hiddenReviews.length > 0) {
+            hiddenReviews.forEach(function (review) {
+                review.style.display = 'block';
+            });
+
+            this.textContent = 'Show Less';
+        } else {
+            const allReviews = document.querySelectorAll('.review-item');
+            allReviews.forEach(function (review, index) {
+                if (index >= 4) {
+                    review.style.display = 'none';
+                }
+            });
+
+            this.textContent = 'View All';
+        }
+    });
+
+</script>
 @endsection

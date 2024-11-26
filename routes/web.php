@@ -19,6 +19,10 @@ Route::middleware('guest')->group(function () {
 
 // Authenticated Routes (for logged-in users)
 Route::middleware('auth')->group(function () {
+    Route::get('/contact', function () {
+        return view('contact');
+    });
+    
     Route::get('/home', [HomeController::class, 'index'])->name('home.index');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.show');
     
