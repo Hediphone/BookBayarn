@@ -6,7 +6,6 @@
 
 @section('content')
 
-
 <x-navbar />
 <!-- Carousel Section -->
 <section class="carousel-section" style="margin-top: 10px;">
@@ -31,7 +30,6 @@
         </ol>
     </div>
 </section>
-
 
 <section class="popular-now-section">
     <div class="container">
@@ -67,7 +65,6 @@
         </div>
     </div>
 </section>
-
 
 <section class="latest-books-section">
     <div class="container">

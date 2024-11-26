@@ -79,7 +79,6 @@
                 </div>
                 <div class="col-md-3 rf_margin">
                     <div class="row">
-                        <!-- <p class="myfavebooks">My Favorite Book</p> -->
                         <div class="col-md-12">
                             <div class="fave_book_container">
                                 <img src=asset/images/dashboard/storm_and_silence.png>
@@ -90,6 +89,7 @@
             </div>
         </div>
     </section>
+
     <section class="recent_reviews">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
@@ -128,7 +128,6 @@
             </div>
         </div>
     </section>
-
 
     <section class="reviewed_books">
         <div class="container">
@@ -220,8 +219,6 @@
         }
     });
 
-
-
     document.getElementById('view-all-reviews').addEventListener('click', function () {
         const reviewItems = document.querySelectorAll('.review-item');
         const hiddenReviews = Array.from(reviewItems).filter(item => item.style.display === 'none');
@@ -240,7 +237,5 @@
             this.textContent = 'View All';
         }
     });
-
-
 </script>
 @endsection

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class BooksController extends Controller
 {
-    // Simulate loading data (e.g., posts, ratings, genres, etc.)
     public function loadBooks()
     {
         $posts = [
