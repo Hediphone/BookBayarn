@@ -111,7 +111,7 @@
                     </div>
                 @endforeach
 
-                <!-- Hidden books that will be shown when the "View All" button is clicked -->
+                <!-- Hidden reviews that will be shown when the "View All" button is clicked -->
                 @foreach (array_slice($posts, 4) as $post)
                     <div class="col-md-3 mb-4 review-item" style="display: none;">
                         <div class="card">
@@ -170,7 +170,7 @@
 
                 <!-- Hidden books that will be shown when the "View All" button is clicked -->
                 @foreach (array_slice($posts, 4) as $post)
-                    <div class="col-md-3 mb-4 book-item" style="display:none;">
+                    <div class="col-md-3 mb-4 book-item hidden">
                         <div class="card">
                             <img src="{{ $post['cover'] }}" class="card-img-top" alt="Book Cover">
                             <div class="card-body">
@@ -193,6 +193,7 @@
                         </div>
                     </div>
                 @endforeach
+
             </div>
         </div>
     </section>
@@ -203,48 +204,43 @@
 @section('scripts')
 <script>
     document.getElementById('view-all-books').addEventListener('click', function () {
-        const hiddenBooks = document.querySelectorAll('.book-item[style="display:none;"]');
+        const books = document.querySelectorAll('.book-item');
+        const hiddenBooks = Array.from(books).filter(book => book.classList.contains('hidden'));
 
         if (hiddenBooks.length > 0) {
-            hiddenBooks.forEach(book => {
-                book.style.display = 'block';
-            });
-
+            books.forEach(book => book.classList.remove('hidden'));
             this.textContent = 'Show Less';
         } else {
-            const allBooks = document.querySelectorAll('.book-item');
-
-            allBooks.forEach((book, index) => {
+            books.forEach((book, index) => {
                 if (index >= 4) {
-                    book.style.display = 'none';
+                    book.classList.add('hidden');
                 }
             });
-
             this.textContent = 'View All';
         }
     });
+
 
 
     document.getElementById('view-all-reviews').addEventListener('click', function () {
-        const hiddenReviews = document.querySelectorAll('.review-item[style="display: none;"]');
+        const reviewItems = document.querySelectorAll('.review-item');
+        const hiddenReviews = Array.from(reviewItems).filter(item => item.style.display === 'none');
 
         if (hiddenReviews.length > 0) {
-            hiddenReviews.forEach(function (review) {
-                review.style.display = 'block';
+            reviewItems.forEach(item => {
+                item.style.display = 'block';
             });
-
             this.textContent = 'Show Less';
         } else {
-            const allReviews = document.querySelectorAll('.review-item');
-            allReviews.forEach(function (review, index) {
+            reviewItems.forEach((item, index) => {
                 if (index >= 4) {
-                    review.style.display = 'none';
+                    item.style.display = 'none';
                 }
             });
-
             this.textContent = 'View All';
         }
     });
+
 
 </script>
 @endsection

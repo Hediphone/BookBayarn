@@ -181,9 +181,6 @@ main {
     text-align: left;
 }
 
-.review-item.hidden {
-    display: none;
-}
 .reviewed_books h1 {
     text-align: left;
     color: #463C74;
@@ -314,4 +311,8 @@ h3 {
 .star-rating i.bi-star {
     color: #C4C4C4;
     /* Grey color for empty stars */
+}
+
+.hidden {
+    display: none !important;
 }
