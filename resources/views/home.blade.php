@@ -39,10 +39,11 @@
         </div>
 
         <div class="row">
-            @foreach (array_slice($posts, 0, 4) as $post)
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <img src="{{ $post['cover'] }}" class="card-img-top" alt="Book Cover">
+        @foreach (array_slice($posts, 0, 4) as $post)
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <a href="{{ route('books.show', $post['book_id']) }}">
+                        <img src="{{ asset($post['cover']) }}" class="card-img-top" alt="Book Cover">
                         <div class="card-body">
                             <h5 class="book-title">{{ $post['title'] }}</h5>
                             <h6 class="book-author">{{ $post['author'] }}</h6>
@@ -54,14 +55,16 @@
                             @foreach ($post['comments'] as $comment)
                                 <div class="last-reader mt-3">
                                     <img src="{{ asset('asset/images/renjun.png') }}" class="rounded-circle" width="24" height="24" alt="Reader's Profile Picture">
-                                    <span class="reader">{{ $comment['author'] }}</span>
+                                    <span class="reader"></span>
                                     <span class="time">{{ $comment['time'] }}</span>
                                 </div>
                             @endforeach
                         </div>
-                    </div>
+                    </a>
                 </div>
-            @endforeach
+            </div>
+        @endforeach
+
         </div>
     </div>
 </section>
@@ -77,6 +80,7 @@
             @foreach (array_slice($posts, 4, 4) as $post)
                 <div class="col-md-3 mb-4">
                     <div class="card">
+                    <a href="{{ route('books.show', $post['book_id']) }}">
                         <img src="{{ $post['cover'] }}" class="card-img-top" alt="Book Cover">
                         <div class="card-body">
                             <h5 class="book-title">{{ $post['title'] }}</h5>
@@ -89,7 +93,7 @@
                             @foreach ($post['comments'] as $comment)
                                 <div class="last-reader mt-3">
                                     <img src="{{ asset('asset/images/renjun.png') }}" class="rounded-circle" width="24" height="24" alt="Reader's Profile Picture">
-                                    <span class="reader">{{ $comment['author'] }}</span>
+                                    <span class="reader"></span>
                                     <span class="time">{{ $comment['time'] }}</span>
                                 </div>
                             @endforeach

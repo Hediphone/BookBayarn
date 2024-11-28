@@ -255,3 +255,133 @@ footer{
   color: #828282 !important;
   font-size: small;
 }
+
+.book-details-section{
+  padding:0px 130px 0px 130px;
+  margin-top:30px;
+  margin-bottom:100px;
+}
+
+
+#card-style{
+  border-radius: 5px;
+  padding:30px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  
+}
+
+.book-details-image{
+  width: 240px;
+  object-fit: cover;/* Ensures the image covers the area without distorting aspect ratio */
+  border-radius: 2px;
+}
+
+#book-btn1,#book-btn2{
+  width:240px;
+  border-radius: 20px;
+  max-height: 5em;
+  height: 2.6em;
+}
+
+#book-btn1{
+  background-color: #B4D51E;
+  color: #ffffff;
+  border: none;
+  font-family: "Merriweather", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+#book-btn2{
+  background-color: #E6E7E3;
+  color: #727272;
+  border: none;
+  font-family: "Merriweather", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.book-title{
+  font-size: 30px;;
+  font-weight: 700px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.num-ratings,.num-reviews{
+  color:#828282;
+  font-size:large;
+  font-family: "Inter","Sans-serif";
+  margin-left: 10px;
+}
+
+.rating-number{
+  color:#000;
+  font-size:large;
+}
+
+
+.star-icon {
+  vertical-align: middle; /* Default alignment */
+  margin-left: 1px;
+  margin-top: 6px; /* Adjust this value to move the star down */
+}
+
+.book-descrip{
+  margin-top: 2px;
+}
+
+
+.separator {
+  font-size: 15px; /* Adjust the size of the dot */
+  color:#ffffff;
+}
+
+.book-author-h,#syn,.book-genres{
+  color:#828282;
+  font-size: 15px;
+  margin-right:8px;
+  
+}
+
+#syn {
+  display: inline-block; /* Ensure it behaves as inline, but can have margins */
+  margin-bottom: 5px; /* Adjust the margin to create space below "Synopsis:" */
+}
+
+.book-descrip {
+  white-space: pre-line; /* Ensures line breaks are respected */
+}
+
+
+.genre-item {
+  text-decoration: none; /* Remove default underline */
+  color: #4b4c4d; /* Set the link color (blue) */
+  padding-bottom: 2px; /* Make space for the underline */
+  cursor: pointer; /* Makes it look clickable */
+  font-weight: bold; /* Optional: Makes the genre text stand out */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.genre-item:hover {
+  color: #0056b3; /* Darker blue on hover */
+  text-decoration: underline; /* Underline appears on hover */
+}
+
+.separator {
+  margin-left: 5px;
+  color: black;
+  font-weight: bold;
+}
+
+.card a {
+  text-decoration: none;
+  color: inherit; /* Ensures it inherits the color from its parent or the current context */
+}
+
+.card a:hover, .card a:focus {
+  text-decoration: none; /* Prevents underlining on hover */
+  color: inherit; /* Keeps the color the same on hover */
+}

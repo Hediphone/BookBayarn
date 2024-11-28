@@ -26,7 +26,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home.index');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.show');
     
-    Route::get('/dashboard/book/{book_id}', [DashboardController::class, 'showBook']);
     
     Route::post('/logout', function () {
         auth()->logout(); // Logs out the user
@@ -36,4 +35,7 @@ Route::middleware('auth')->group(function () {
     // Content loading routes
     Route::get('/home/content', [BooksController::class, 'loadBooks'])->name('home.books');
     Route::get('/dashboard/content', [BooksController::class, 'loadBooks'])->name('dashboard.books');
+    
+    Route::get('/books/{id}', [BooksController::class, 'show'])->name('books.show');
+
 });
