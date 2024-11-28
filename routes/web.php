@@ -5,9 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LandingPageController;
 
-// Landing Page
-Route::get('/', [HomeController::class, 'index'])->name('landing-page');
+
+Route::get('/', [LandingPageController::class, 'index'])->name('landing-page');
+
 
 // Authentication Routes (only for guests)
 Route::middleware('guest')->group(function () {

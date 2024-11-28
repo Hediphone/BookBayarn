@@ -6,30 +6,8 @@
 
 @section('content')
 
-<x-navbar />
-<!-- Carousel Section -->
-<section class="carousel-section" style="margin-top: 10px;">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="center-image" src="{{ asset('asset/images/slide1.png') }}" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="center-image" src="{{ asset('asset/images/slide2.png') }}" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="center-image" src="{{ asset('asset/images/slide3.png') }}" alt="Third slide">
-            </div>
-        </div>
-
-        <!-- Carousel Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleControls" data-slide-to="1"></li>
-            <li data-target="#carouselExampleControls" data-slide-to="2"></li>
-        </ol>
-    </div>
-</section>
+<x-navbar/>
+<x-carousel />
 
 <section class="popular-now-section">
     <div class="container">
